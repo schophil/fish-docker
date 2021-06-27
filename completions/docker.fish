@@ -19,7 +19,8 @@ function __fish_docker_all_containers
 end
 
 function __fish_docker_all_images
-	docker images
+	docker images --format "{{.Repository}}"
+	docker images --format "{{.ID}}"
 end
 
 complete -c docker -f
