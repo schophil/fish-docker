@@ -27,6 +27,7 @@ complete -c docker -f
 
 complete -c docker -n "not __fish_seen_subcommand_from $commands" -a "$commands"
 complete -c docker -n "__fish_seen_subcommand_from rm" -a "(__fish_docker_stopped_containers)"
+complete -c docker -n "__fish_seen_subcommand_from start" -a "(__fish_docker_stopped_containers)"
 complete -c docker -n "__fish_seen_subcommand_from stop" -a "(__fish_docker_running_containers)"
 complete -c docker -n "__fish_seen_subcommand_from rmi" -a "(__fish_docker_all_images)"
 
