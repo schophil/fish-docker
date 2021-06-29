@@ -4,23 +4,20 @@
 set -l commands attach build commit cp create diff events exec export history images import info inspect kill load login logout logs pause port ps pull push rename restart rm rmi run save search start stats stop tag top unpause update version wait
 
 function __fish_docker_running_containers
-	docker ps --format "{{.Names}}"
-	docker ps --format "{{.ID}}"
+	docker ps --format "{{.Names}}\n{{.ID}}"
 end
 
 function __fish_docker_stopped_containers
-	docker ps -f "status=exited" --format "{{.Names}}"
-	docker ps -f "status=exited" --format "{{.ID}}"
+	docker ps -f "status=exited" --format "{{.Names}}\n{{.ID}}"
+	docker ps -f "status=created" --format "{{.Names}}\n{{.ID}}"
 end
 
 function __fish_docker_all_containers
-	docker ps -a --format "{{.Names}}"
-	docker ps -a --format "{{.ID}}"
+	docker ps -a --format "{{.Names}}\n{{.ID}}"
 end
 
 function __fish_docker_all_images
-	docker images --format "{{.Repository}}"
-	docker images --format "{{.ID}}"
+	docker images --format "{{.Repository}}\n{{.ID}}"
 end
 
 complete -c docker -f
